@@ -1,0 +1,23 @@
+<h1>Restaurants</h1>
+
+<%= link_to 'Add Restaurant', new_restaurant_path, class: "btn btn-success mb-2" %>
+
+<div class="list-group col-8">
+  <% @restaurants.each do |restaurant| %>
+    <div class="list-group-item list-group-item-action flex-column align-items-start mb-2 border">
+
+      <%= link_to restaurant_path(restaurant) do %>
+      <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+              <%= restaurant.name  %>
+            </h5>
+            <small>
+              <%= restaurant.category %>
+            </small>
+          </div>
+          <p><%= restaurant.phone_number %></p>
+          <p><%= restaurant.address %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
